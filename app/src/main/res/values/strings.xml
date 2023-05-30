@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FunkeateApp</string>
+    <string name="com_auth0_client_id">nvyWbZeudGH07w6Ybo5iDKw197sZQ0ns</string>
+    <string name="com_auth0_domain">dev-gb61hjary7ea583j.us.auth0.com</string>
+</resources>
