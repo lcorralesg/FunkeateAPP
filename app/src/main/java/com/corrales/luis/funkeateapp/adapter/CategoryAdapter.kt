@@ -36,9 +36,15 @@ class CategoryAdapter (
                     callback.onClickCategoryInformation(category)
                 }
                 tvName.text = category.nombre
+                if(category.estado == true){
+                    tvEstado.text = "DISPONIBLE"
+                }else{
+                    tvEstado.text = "NO DISPONIBLE"
+                }
+
                 Glide
                     .with(itemView)
-                    .load(category.getCategoryImage())
+                    .load(category.imagen)
                     .into(binding.ivCategory)
             }
         }

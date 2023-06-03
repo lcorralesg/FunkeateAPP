@@ -1,5 +1,6 @@
 package com.corrales.luis.funkeateapp.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -39,8 +40,10 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
             val call = getRetrofit().create(ApiService::class.java).getCategories()
             if(call.isSuccessful){
                 call.body()?.let {
-                    adapter.list = it.data
-                            adapter.notifyDataSetChanged()
+                    runOnUiThread{
+                        adapter.list = it.data
+                        adapter.notifyDataSetChanged()
+                    }
                 }
             }
         }
@@ -76,11 +79,10 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
     }
 
     override fun onClickCategoryInformation(categoryResponse: CategoryResponse){
-        Toast.makeText(this, "Click Category: ${categoryResponse.nombre}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Click Category: ${categoryResponse.nombre} url: ${categoryResponse.imagen}", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCardDragging(direction: Direction?, ratio: Float) {
-        TODO("Not yet implemented")
     }
 
     override fun onCardSwiped(direction: Direction?) {
@@ -90,18 +92,14 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
     }
 
     override fun onCardRewound() {
-        TODO("Not yet implemented")
     }
 
     override fun onCardCanceled() {
-        TODO("Not yet implemented")
     }
 
     override fun onCardAppeared(view: View?, position: Int) {
-        TODO("Not yet implemented")
     }
 
     override fun onCardDisappeared(view: View?, position: Int) {
-        TODO("Not yet implemented")
     }
 }
