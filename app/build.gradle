@@ -60,6 +60,10 @@ dependencies {
     def navigation_version = "2.4.2"
     def fragment_version = "1.4.1"
 
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment:2.5.3"
+    implementation "androidx.navigation:navigation-ui:2.5.3"
+
     // Retrofit
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"

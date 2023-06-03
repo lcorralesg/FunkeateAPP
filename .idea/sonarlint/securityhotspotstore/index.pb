@@ -1,19 +1,11 @@
 
 w
 Gapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/BaseActivity.kt,5\c\5ca0f6a9ca228f84e434ebc7030c1c224a1409ac
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-Å
-Qapp/src/main/java/com/corrales/luis/funkeateapp/ui/viewmodel/CategoryViewModel.kt,d\7\d751dd513a8e70f2899b46a3b5d6f980d8385bc1
 y
 Iapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/SplashActivity.kt,9\3\93a233c7b97e8f41317e64b2be28adeb5ed660a0
 s
 Capp/src/main/java/com/corrales/luis/funkeateapp/ProductoResponse.kt,4\2\42169a7f68242c56b9a920fc301ac493e94fa335
-k
-;app/src/main/java/com/corrales/luis/funkeateapp/Producto.kt,9\d\9dd7727ec65cbf5372f4484fada30467eb4e31d2
 l
 <app/src/main/java/com/corrales/luis/funkeateapp/ApiClient.kt,3\f\3f7dfc4bbc59f7c55339191c3401a3e963759b8f
-o
-?app/src/main/java/com/corrales/luis/funkeateapp/MainActivity.kt,e\5\e5940118a10a8f3f1dc1baf56fa13535f84d4630
 z
 Japp/src/main/java/com/corrales/luis/funkeateapp/data/network/ApiService.kt,9\9\994b671ca28d57d7cd9be45c609c0fca09125e8f
