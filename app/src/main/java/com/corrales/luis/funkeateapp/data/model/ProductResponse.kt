@@ -2,7 +2,6 @@ package com.corrales.luis.funkeateapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class ProductResponse (
     @SerializedName("id") val id: Int,
     @SerializedName("nombre") val nombre: String,

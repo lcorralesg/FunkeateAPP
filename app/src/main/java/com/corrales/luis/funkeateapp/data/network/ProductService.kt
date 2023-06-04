@@ -4,8 +4,7 @@ import com.corrales.luis.funkeateapp.data.model.ProductListResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface ProductApi {
-    @GET("products")
-    suspend fun getProducts():
-        Response<ProductListResponse>
+interface ProductService {
+    @GET("products/all")
+    suspend fun getAllProducts(): Response<ProductListResponse>
 }
