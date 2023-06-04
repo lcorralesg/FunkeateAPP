@@ -1,6 +1,5 @@
 package com.corrales.luis.funkeateapp
 
-import com.corrales.luis.funkeateapp.data.network.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

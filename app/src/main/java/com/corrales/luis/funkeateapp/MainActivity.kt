@@ -13,8 +13,13 @@ import com.auth0.android.management.UsersAPIClient
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
-import retrofit2.Call
-import retrofit2.Response
+import com.corrales.luis.funkeateapp.data.network.ProductService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var account: Auth0
@@ -25,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtPictureURL: TextView
     private lateinit var txtNickname: TextView
     private lateinit var txtCountry: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Set up the account object with the Auth0 application details
@@ -41,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         txtPictureURL = findViewById(R.id.txtPictureURL)
         txtNickname = findViewById(R.id.txtNickname)
         txtCountry = findViewById(R.id.txtCountry)
+
         btnLogin.setOnClickListener {
             loginWithBrowser()
         }
@@ -70,6 +77,7 @@ class MainActivity : AppCompatActivity() {
                     // Get the access token from the credentials object.
                     // This can be used to call APIs
                     val accessToken = credentials.accessToken
+                    getAllProducts(accessToken)
                     showUserProfile(accessToken)
                     val client = AuthenticationAPIClient(account)
                     client.userInfo(accessToken)
@@ -88,7 +96,6 @@ class MainActivity : AppCompatActivity() {
 
                 }
             })
-
     }
     private fun logout() {
         WebAuthProvider.logout(account)
@@ -153,5 +160,41 @@ class MainActivity : AppCompatActivity() {
                     txtCountry.text = country
                 }
             })
+    }
+
+    fun getAllProducts(accessToken: String) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://192.168.0.114:8080/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(OkHttpClient.Builder().addInterceptor { chain ->
+                val request = chain.request().newBuilder().addHeader("Authorization", "Bearer ${accessToken}").build()
+                chain.proceed(request)
+            }.build())
+            .build()
+        val productService = retrofit.create(ProductService::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = productService.getAllProducts()
+                if (response.isSuccessful) {
+                    val productsResponse = response.body()
+                    val productList = productsResponse?.data
+
+                    productList?.let {
+                        for (product in productList) {
+                            println(product.id)
+                            println(product.nombre)
+                            println(product.precio)
+                            println(product.descripcion)
+                            println(product.categoria)
+                            println(product.categoria.nombre)
+                        }
+                    }
+                } else {
+                    println(response.code())
+                }
+            } catch (e: Exception) {
+                println(e.message)
+            }
+        }
     }
 }
