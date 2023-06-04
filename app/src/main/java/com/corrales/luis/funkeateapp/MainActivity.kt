@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         // Set up the account object with the Auth0 application details
         account = Auth0(
-            "nvyWbZeudGH07w6Ybo5iDKw197sZQ0ns",
-            "dev-gb61hjary7ea583j.us.auth0.com"
+            "5cHBocd4hrfl8siO8W1b7jpqueMlmEtX",
+            "dev-hfm58bxg2683jzf2.us.auth0.com"
         )
         setContentView(R.layout.activity_main)
         // Al presionar el botón loginWithBrowser se ejecuta la función loginWithBrowser
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             // modify the scopes to enable read and write of user_metadata
             .withScope("openid profile email read:current_user update:current_user_metadata")
             // specify the audience for the Auth0 Management API
-            .withAudience("https://dev-gb61hjary7ea583j.us.auth0.com/api/v2/")
+            .withAudience("https://dev-hfm58bxg2683jzf2.us.auth0.com/api/v2/")
             // Launch the authentication passing the callback where the results will be received
             .start(this, object : Callback<Credentials, AuthenticationException> {
                 // Called when there is an authentication failure
