@@ -1,9 +1,7 @@
 package com.corrales.luis.funkeateapp.ui.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.corrales.luis.funkeateapp.data.model.CategoryResponse
 import com.corrales.luis.funkeateapp.data.network.ApiService
 import kotlinx.coroutines.CoroutineScope
@@ -33,6 +31,7 @@ class HomeViewModel : ViewModel() {
             }
         }
     }
+
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
