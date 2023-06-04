@@ -9,8 +9,6 @@ l
 <app/src/main/java/com/corrales/luis/funkeateapp/ApiClient.kt,3\f\3f7dfc4bbc59f7c55339191c3401a3e963759b8f
 k
 ;app/src/main/java/com/corrales/luis/funkeateapp/Producto.kt,9\d\9dd7727ec65cbf5372f4484fada30467eb4e31d2
-o
-?app/src/main/java/com/corrales/luis/funkeateapp/MainActivity.kt,e\5\e5940118a10a8f3f1dc1baf56fa13535f84d4630
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
@@ -23,9 +21,5 @@ Gapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/BaseFragment.kt,0\d\0d
 Napp/src/main/java/com/corrales/luis/funkeateapp/data/model/CategoryResponse.kt,8\5\85bec77ff3e8478a97d9fc10dc8cbba144f983a8
 ‚
 Rapp/src/main/java/com/corrales/luis/funkeateapp/data/model/CategoryListResponse.kt,d\6\d6f84ba98a5ad6ec0a24f1175d02579d271bfd69
-
-Qapp/src/main/java/com/corrales/luis/funkeateapp/data/model/ProductListResponse.kt,e\a\ea4043dd3e13c166aeb6b4e930bbfd4165d45d36
-~
-Napp/src/main/java/com/corrales/luis/funkeateapp/data/model/ProductoResponse.kt,8\2\82b25f44e8b2a450cdf60d7e31070e51754812fe
 
 Oapp/src/main/java/com/corrales/luis/funkeateapp/ui/viewmodel/PerfilViewModel.kt,4\a\4abf2e2cc2ca73353f0897ad0421f75e9b6102a3
