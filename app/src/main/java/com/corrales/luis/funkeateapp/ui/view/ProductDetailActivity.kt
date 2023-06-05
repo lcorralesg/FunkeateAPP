@@ -3,15 +3,15 @@ package com.corrales.luis.funkeateapp.ui.view
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.corrales.luis.funkeateapp.databinding.ActivityCategoryBinding
-import com.corrales.luis.funkeateapp.ui.viewmodel.CategoryViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.corrales.luis.funkeateapp.R
+import com.corrales.luis.funkeateapp.databinding.ActivityProductDetailBinding
+import com.corrales.luis.funkeateapp.ui.viewmodel.ProductDetailViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class CategoryActivity: BaseActivity<ActivityCategoryBinding>
-    (ActivityCategoryBinding::inflate){
+class ProductDetailActivity : BaseActivity<ActivityProductDetailBinding>
+    (ActivityProductDetailBinding::inflate) {
 
-        private val viewModel by lazy { CategoryViewModel() }
+    private val viewModel by lazy { ProductDetailViewModel() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,5 +21,5 @@ class CategoryActivity: BaseActivity<ActivityCategoryBinding>
         val navController = findNavController(R.id.nav_host_fragment)
 
         navView.setupWithNavController(navController)
-        }
     }
+}

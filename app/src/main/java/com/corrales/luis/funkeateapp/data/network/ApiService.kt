@@ -1,13 +1,11 @@
 package com.corrales.luis.funkeateapp.data.network
 
-import com.corrales.luis.funkeateapp.Producto
 import com.corrales.luis.funkeateapp.data.model.CategoryListResponse
-import com.corrales.luis.funkeateapp.data.model.CategoryResponse
 import com.corrales.luis.funkeateapp.data.model.ProductListResponse
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Header
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     /*@GET("products/all")
@@ -18,4 +16,7 @@ interface ApiService {
 
     @GET("products/all")
     suspend fun getProducts(): Response<ProductListResponse>
+
+    @GET("products/findbycategory/{categoria_name}")
+    suspend fun getProductsbyCategoryName(@Path("categoria_name") categoria_name:String):Response<ProductListResponse>
 }

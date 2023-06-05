@@ -9,4 +9,9 @@
         android:icon="@drawable/rewind"
         android:title="Perfil" />
 
+    <item
+        android:id="@+id/navigation_product_detail"
+        android:icon="@drawable/rewind"
+        android:title="Productos Detail" />
+
 </menu>

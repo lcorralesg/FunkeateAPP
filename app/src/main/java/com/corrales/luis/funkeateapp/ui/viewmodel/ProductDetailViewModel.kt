@@ -2,7 +2,7 @@ package com.corrales.luis.funkeateapp.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.corrales.luis.funkeateapp.data.model.CategoryResponse
+import com.corrales.luis.funkeateapp.data.model.ProductResponse
 import com.corrales.luis.funkeateapp.data.network.ApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -10,23 +10,24 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class HomeViewModel : ViewModel() {
-    val categoryList = MutableLiveData<List<CategoryResponse>>()
+class ProductDetailViewModel: ViewModel() {
+
+    val productdetailList = MutableLiveData<List<ProductResponse>>()
+
     val isLoading = MutableLiveData<Boolean>()
 
-
     init{
-        getAllCategories()
+        getAllProductDetail()
     }
 
-    private fun getAllCategories(){
+    private fun getAllProductDetail() {
         isLoading.postValue(true)
         CoroutineScope(Dispatchers.IO).launch {
             isLoading.postValue(false)
-            val call = getRetrofit().create(ApiService::class.java).getCategories()
+            val call = getRetrofit().create(ApiService::class.java).getProducts()
             if(call.isSuccessful){
                 call.body()?.let {
-                    categoryList.postValue(it.data)
+                    productdetailList.postValue(it.data)
                 }
             }
         }

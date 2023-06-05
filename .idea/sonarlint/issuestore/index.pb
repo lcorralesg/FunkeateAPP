@@ -1,25 +1,9 @@
 
-w
-Gapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/BaseActivity.kt,5\c\5ca0f6a9ca228f84e434ebc7030c1c224a1409ac
-y
-Iapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/SplashActivity.kt,9\3\93a233c7b97e8f41317e64b2be28adeb5ed660a0
-s
-Capp/src/main/java/com/corrales/luis/funkeateapp/ProductoResponse.kt,4\2\42169a7f68242c56b9a920fc301ac493e94fa335
-l
-<app/src/main/java/com/corrales/luis/funkeateapp/ApiClient.kt,3\f\3f7dfc4bbc59f7c55339191c3401a3e963759b8f
-k
-;app/src/main/java/com/corrales/luis/funkeateapp/Producto.kt,9\d\9dd7727ec65cbf5372f4484fada30467eb4e31d2
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-y
-Iapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/PerfilFragment.kt,9\9\9950b84bf7f547c933daf1afda9c617395bf5e73
-w
-Gapp/src/main/java/com/corrales/luis/funkeateapp/ui/view/BaseFragment.kt,0\d\0d5dd51c66063a6ca84005c6084425cd83b3e7d8
-~
-Napp/src/main/java/com/corrales/luis/funkeateapp/data/model/CategoryResponse.kt,8\5\85bec77ff3e8478a97d9fc10dc8cbba144f983a8
 ‚
 Rapp/src/main/java/com/corrales/luis/funkeateapp/data/model/CategoryListResponse.kt,d\6\d6f84ba98a5ad6ec0a24f1175d02579d271bfd69
-
-Oapp/src/main/java/com/corrales/luis/funkeateapp/ui/viewmodel/PerfilViewModel.kt,4\a\4abf2e2cc2ca73353f0897ad0421f75e9b6102a3
+
+Qapp/src/main/java/com/corrales/luis/funkeateapp/data/model/ProductListResponse.kt,e\a\ea4043dd3e13c166aeb6b4e930bbfd4165d45d36
+~
+Napp/src/main/java/com/corrales/luis/funkeateapp/data/model/CategoryResponse.kt,8\5\85bec77ff3e8478a97d9fc10dc8cbba144f983a8

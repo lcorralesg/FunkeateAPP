@@ -7,23 +7,22 @@ import android.view.animation.LinearInterpolator
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.corrales.luis.funkeateapp.adapter.CategoryAdapter
-import com.corrales.luis.funkeateapp.data.model.CategoryResponse
-import com.corrales.luis.funkeateapp.databinding.FragmentHomeBinding
-import com.corrales.luis.funkeateapp.ui.viewmodel.HomeViewModel
+import com.corrales.luis.funkeateapp.adapter.ProductDetailAdapter
+import com.corrales.luis.funkeateapp.data.model.ProductResponse
+import com.corrales.luis.funkeateapp.databinding.FragmentProductDetailBinding
+import com.corrales.luis.funkeateapp.ui.viewmodel.ProductDetailViewModel
 import com.yuyakaido.android.cardstackview.*
 
+class ProductDetailFragment: BaseFragment<FragmentProductDetailBinding>(FragmentProductDetailBinding::inflate),
+    CardStackListener, ProductDetailAdapter.Callback{
 
-class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate),
-    CardStackListener, CategoryAdapter.Callback {
+    private var listProduct: List<ProductResponse> = emptyList()
 
-    private var listCategory: List<CategoryResponse> = emptyList()
-
-    private val homeViewModel: HomeViewModel by viewModels()
+    private val productDetalViewModel: ProductDetailViewModel by viewModels()
 
     private val manager by lazy { CardStackLayoutManager(context, this) }
 
-    private val adapter by lazy { CategoryAdapter(listCategory, this) }
+    private val adapter by lazy { ProductDetailAdapter(listProduct, this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +39,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
                 .setInterpolator(DecelerateInterpolator())
                 .build()
             manager.setRewindAnimationSetting(setting)
-            binding.rvTinderCategory.rewind()
+            binding.rvTinderProductDetail.rewind()
         }
         binding.floatingActionButton2.setOnClickListener {
             //Skip
@@ -50,7 +49,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
                 .setInterpolator(DecelerateInterpolator())
                 .build()
             manager.setSwipeAnimationSetting(setting)
-            binding.rvTinderCategory.swipe()
+            binding.rvTinderProductDetail.swipe()
         }
         binding.floatingActionButton3.setOnClickListener {
             val setting = SwipeAnimationSetting.Builder()
@@ -59,12 +58,12 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
                 .setInterpolator(DecelerateInterpolator())
                 .build()
             manager.setSwipeAnimationSetting(setting)
-            binding.rvTinderCategory.swipe()
+            binding.rvTinderProductDetail.swipe()
         }
-        homeViewModel.isLoading.observe(this) {
+        productDetalViewModel.isLoading.observe(this) {
             binding.progressBar.isVisible = it
         }
-        homeViewModel.categoryList.observe(this) {
+        productDetalViewModel.productdetailList.observe(this) {
             adapter.list = it
             adapter.notifyDataSetChanged()
             binding.floatingActionButton.visibility = View.VISIBLE
@@ -86,11 +85,11 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
         manager.setSwipeableMethod(SwipeableMethod.AutomaticAndManual)
         manager.setOverlayInterpolator(LinearInterpolator())
 
-        binding.rvTinderCategory.layoutManager = manager
+        binding.rvTinderProductDetail.layoutManager = manager
 
-        binding.rvTinderCategory.adapter = adapter
+        binding.rvTinderProductDetail.adapter = adapter
 
-        binding.rvTinderCategory.itemAnimator.apply {
+        binding.rvTinderProductDetail.itemAnimator.apply {
             if(this is DefaultItemAnimator){
                 supportsChangeAnimations = false
             }
@@ -116,8 +115,6 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
     override fun onCardDisappeared(view: View?, position: Int) {
     }
 
-    override fun onClickCategoryInformation(categoryResponse: CategoryResponse){
-
+    override fun onClickCategoryInformation(product: ProductResponse) {
     }
-
 }
