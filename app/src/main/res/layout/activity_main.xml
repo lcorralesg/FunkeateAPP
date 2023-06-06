@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtNombre_producto"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,8 +18,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+        android:id="@+id/txtCategoria"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre_producto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
@@ -27,8 +27,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPictureURL"
-        app:layout_constraintTop_toBottomOf="@+id/txtName"
+        android:id="@+id/txtDescripcion"
+        app:layout_constraintTop_toBottomOf="@+id/txtCategoria"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
@@ -36,8 +36,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNickname"
-        app:layout_constraintTop_toBottomOf="@+id/txtPictureURL"
+        android:id="@+id/txtPrecio"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
@@ -45,11 +45,39 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtCountry"
-        app:layout_constraintTop_toBottomOf="@+id/txtNickname"
+        android:id="@+id/txtNombre_producto2"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCategoria2"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre_producto2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDescripcion2"
+        app:layout_constraintTop_toBottomOf="@+id/txtCategoria2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPrecio2"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
 
     <Button
         android:layout_width="wrap_content"

@@ -36,7 +36,7 @@ class HomeViewModel : ViewModel() {
 
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.1.2:8080/")
+            .baseUrl("http://192.168.0.114:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
