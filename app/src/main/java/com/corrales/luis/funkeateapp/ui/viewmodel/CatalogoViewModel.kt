@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class CatalogoViewModel : ViewModel() {
     val productList = MutableLiveData<List<ProductResponse>>()
     val catalogList = MutableLiveData<List<CategoryResponse>>()
+    val productDetail = MutableLiveData<ProductResponse>()
     val isLoading = MutableLiveData<Boolean>()
 
     fun getAllProducts(context: Context) {
@@ -52,6 +53,19 @@ class CatalogoViewModel : ViewModel() {
             if (call.isSuccessful) {
                 call.body()?.let {
                     productList.postValue(it.data)
+                }
+            }
+        }
+    }
+
+    fun getProductDetailById(productId: Int) {
+        isLoading.postValue(true)
+        CoroutineScope(Dispatchers.IO).launch {
+            isLoading.postValue(false)
+            val call = getRetrofit().create(ProductService::class.java).getProductDetailById(productId)
+            if (call.isSuccessful) {
+                call.body()?.let {
+                    productDetail.postValue(it)
                 }
             }
         }

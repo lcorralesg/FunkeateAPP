@@ -11,7 +11,8 @@ import com.corrales.luis.funkeateapp.databinding.ItemProductoBinding
 import com.corrales.luis.funkeateapp.ui.view.CatalogoFragment
 
 class ProductAdapter(
-    var list: List<ProductResponse>
+    var list: List<ProductResponse>,
+    var productClickListener: ProductClickListener
 ): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = parent.inflate(R.layout.item_producto)
@@ -36,7 +37,14 @@ class ProductAdapter(
                     .with(itemView)
                     .load(product.imagen)
                     .into(binding.ivProduct)
+                linearLayout3.setOnClickListener {
+                    productClickListener.onProductClicked(product)
+                }
             }
         }
+    }
+
+    interface ProductClickListener {
+        fun onProductClicked(product: ProductResponse)
     }
 }

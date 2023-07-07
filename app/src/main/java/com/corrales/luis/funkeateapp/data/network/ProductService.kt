@@ -13,4 +13,8 @@ interface ProductService {
     //http://localhost:8080/products/findbycategoryname?cname=anime
     @GET("products/findbycategoryname")
     suspend fun getProductsByCategoryName(@Query("cname") categoryName: String): Response<ProductListResponse>
+
+    //http://localhost:8080/products/find?producto_id=1
+    @GET("products/find")
+    suspend fun getProductDetailById(@Query("producto_id") productId: Int): Response<ProductResponse>
 }
