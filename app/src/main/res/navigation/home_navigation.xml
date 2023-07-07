@@ -10,6 +10,11 @@
         android:label="Inicio"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/navigation_catalog"
+        android:name="com.corrales.luis.funkeateapp.ui.view.CatalogoFragment"
+        android:label="Catálogo"
+        tools:layout="@layout/fragment_catalogo" />
+    <fragment
         android:id="@+id/navigation_perfil"
         android:name="com.corrales.luis.funkeateapp.ui.view.PerfilFragment"
         android:label="Perfil"

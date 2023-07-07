@@ -1,5 +1,6 @@
 package com.corrales.luis.funkeateapp.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import com.corrales.luis.funkeateapp.R
 import com.corrales.luis.funkeateapp.data.model.CategoryResponse
 import com.corrales.luis.funkeateapp.databinding.ItemCategoryBinding
 
-class CategoryAdapter (
+class CategoryAdapter(
     var list:List<CategoryResponse>,
     var callback: Callback
     ): RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {

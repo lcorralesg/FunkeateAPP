@@ -1,4 +1,7 @@
 package com.corrales.luis.funkeateapp.ui.viewmodel
 
-class PerfilViewModel {
+import androidx.lifecycle.ViewModel
+
+
+class PerfilViewModel : ViewModel() {
 }

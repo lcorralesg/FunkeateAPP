@@ -4,9 +4,11 @@
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Inicio" />
+    <item android:id="@+id/navigation_catalog"
+        android:icon="@drawable/catalog"
+        android:title="Catalogo" />
     <item
         android:id="@+id/navigation_perfil"
         android:icon="@drawable/rewind"
         android:title="Perfil" />
-
 </menu>
