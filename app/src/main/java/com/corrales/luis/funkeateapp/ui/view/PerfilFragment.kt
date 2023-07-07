@@ -26,12 +26,11 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
     private lateinit var account: Auth0
     private val perfilViewModel: PerfilViewModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         account = Auth0(
-            "nvyWbZeudGH07w6Ybo5iDKw197sZQ0ns",
-            "dev-gb61hjary7ea583j.us.auth0.com"
+            "5cHBocd4hrfl8siO8W1b7jpqueMlmEtX",
+            "dev-hfm58bxg2683jzf2.us.auth0.com"
         )
         initializeButtons()
     }
@@ -49,7 +48,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
         WebAuthProvider.login(account)
             .withScheme("demo")
             .withScope("openid profile email read:current_user update:current_user_metadata")
-            .withAudience("https://dev-gb61hjary7ea583j.us.auth0.com/api/v2/")
+            .withAudience("https://dev-hfm58bxg2683jzf2.us.auth0.com/api/v2/")
             // Launch the authentication passing the callback where the results will be received
             .start(requireActivity(), object : Callback<Credentials, AuthenticationException> {
                 override fun onFailure(error: AuthenticationException) {
