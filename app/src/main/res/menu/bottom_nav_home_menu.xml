@@ -9,6 +9,6 @@
         android:title="Catalogo" />
     <item
         android:id="@+id/navigation_perfil"
-        android:icon="@drawable/rewind"
+        android:icon="@drawable/profile_icon"
         android:title="Perfil" />
 </menu>
