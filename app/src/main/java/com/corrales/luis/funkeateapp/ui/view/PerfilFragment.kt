@@ -20,8 +20,6 @@ import kotlinx.coroutines.withContext
 import com.corrales.luis.funkeateapp.databinding.FragmentPerfilBinding
 import com.corrales.luis.funkeateapp.ui.viewmodel.PerfilViewModel
 
-//Se controlara el perfil del usuario y el inicio de sesion, registro y cerrar sesion con Auth0
-
 class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding::inflate) {
     private lateinit var account: Auth0
     private val perfilViewModel: PerfilViewModel by viewModels()
@@ -30,8 +28,8 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         account = Auth0(
-            "nvyWbZeudGH07w6Ybo5iDKw197sZQ0ns",
-            "dev-gb61hjary7ea583j.us.auth0.com"
+            "5cHBocd4hrfl8siO8W1b7jpqueMlmEtX",
+            "dev-hfm58bxg2683jzf2.us.auth0.com"
         )
         initializeButtons()
     }
@@ -49,7 +47,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
         WebAuthProvider.login(account)
             .withScheme("demo")
             .withScope("openid profile email read:current_user update:current_user_metadata")
-            .withAudience("https://dev-gb61hjary7ea583j.us.auth0.com/api/v2/")
+            .withAudience("https://dev-hfm58bxg2683jzf2.us.auth0.com/api/v2/")
             // Launch the authentication passing the callback where the results will be received
             .start(requireActivity(), object : Callback<Credentials, AuthenticationException> {
                 override fun onFailure(error: AuthenticationException) {
@@ -71,6 +69,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                 }
             })
     }
+
     private fun logout() {
         WebAuthProvider.logout(account)
             .withScheme("demo")
@@ -87,13 +86,12 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                             .load(R.drawable.funkeate_logo)
                             .into(binding.imageView3)
                         // Cambiar el estado de visibilidad de los botones
-
                         binding.loginButton.visibility = View.VISIBLE
-                        binding.registerButton.visibility = View.VISIBLE
                         binding.logoutButton.visibility = View.GONE
 
                         // Cambiar el estado de visibilidad de los datos del usuario
-                        binding.userDataLayout.visibility = View.GONE
+                        binding.userEmail.visibility = View.GONE
+                        binding.userName.visibility = View.GONE
                         binding.textView4.visibility = View.VISIBLE
 
                     }
@@ -109,7 +107,9 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                 }
                 override fun onSuccess(result: UserProfile) {
                     binding.userEmail.text = "Email: ${result.email}"
-                    binding.userName.text = "Nombre de usuario: ${result.name}"
+                    // Necesito el id, pero la funcion devuelve auth0|id, asi que lo separo
+                    val id = result.getId()?.split("|")
+                    binding.userName.text = "ID: ${id?.get(1)}"
                     Glide
                         .with(requireContext())
                         .load(result.pictureURL)
@@ -117,12 +117,13 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
 
                     // Cambiar el estado de visibilidad de los botones
                     binding.loginButton.visibility = View.GONE
-                    binding.registerButton.visibility = View.GONE
                     binding.logoutButton.visibility = View.VISIBLE
                     // Cambiar el estado de visibilidad de los datos del usuario
-                    binding.userDataLayout.visibility = View.VISIBLE
+                    binding.userName.visibility = View.VISIBLE
+                    binding.userEmail.visibility = View.VISIBLE
                     binding.textView4.visibility = View.GONE
                 }
             })
     }
+
 }

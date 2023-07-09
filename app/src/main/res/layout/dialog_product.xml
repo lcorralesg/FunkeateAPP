@@ -1,88 +1,113 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp">
-    <ImageView
+    android:padding="15dp">
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivProductImage"
-        android:layout_marginStart="25dp"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:shapeAppearanceOverlay="@style/circleImageView"
+        android:padding="3dp"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/mine_shaft"
+        android:background="@color/cardview_light_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/funkeate_logo"
-        android:layout_marginBottom="8dp"/>
-
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/tvProductName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="@color/purple_200"
-        android:layout_marginBottom="8dp"/>
-
+        android:textSize="20sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/ivProductImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"/>
     <TextView
         android:id="@+id/tvProductDescription"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvDetails"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvProductDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvPrice"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvEstado"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvCajaPersonalizada"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvEstado"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvTamanoCaja"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvCajaPersonalizada"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvTamanoFunko"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvTamanoCaja"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/tvCategoria"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/purple_200"/>
+        android:textSize="15sp"
+        android:textColor="@color/light_font"
+        app:layout_constraintTop_toBottomOf="@id/tvTamanoFunko"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <Button
         android:id="@+id/btnClose"
@@ -90,8 +115,9 @@
         android:layout_height="wrap_content"
         android:text="Cerrar"
         android:textColor="@color/white"
-        android:background="@color/red"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,11 +39,15 @@ class CategoryAdapterFilter (
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (getItemViewType(position) == VIEW_TYPE_CATEGORY) {
-            val item = list[position]
+            val item = list[getPositionOffset(position)]
             holder.bindCategory(item)
         } else {
             holder.bindShowAllButton()
         }
+    }
+
+    private fun getPositionOffset(position: Int): Int {
+        return if (showAllButton) position - 1 else position
     }
 
     override fun getItemCount(): Int {
@@ -52,7 +56,7 @@ class CategoryAdapterFilter (
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (showAllButton && position == list.size) {
+        return if (showAllButton && position == 0) {
             VIEW_TYPE_SHOW_ALL
         } else {
             VIEW_TYPE_CATEGORY

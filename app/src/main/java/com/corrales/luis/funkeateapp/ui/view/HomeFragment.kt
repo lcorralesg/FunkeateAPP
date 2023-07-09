@@ -47,25 +47,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
             manager.setRewindAnimationSetting(setting)
             binding.rvTinderCategory.rewind()
         }
-        binding.floatingActionButton2.setOnClickListener {
-            //Skip
-            val setting = SwipeAnimationSetting.Builder()
-                .setDirection(Direction.Left)
-                .setDuration(Duration.Normal.duration)
-                .setInterpolator(DecelerateInterpolator())
-                .build()
-            manager.setSwipeAnimationSetting(setting)
-            binding.rvTinderCategory.swipe()
-        }
-        binding.floatingActionButton3.setOnClickListener {
-            val setting = SwipeAnimationSetting.Builder()
-                .setDirection(Direction.Right)
-                .setDuration(Duration.Normal.duration)
-                .setInterpolator(DecelerateInterpolator())
-                .build()
-            manager.setSwipeAnimationSetting(setting)
-            binding.rvTinderCategory.swipe()
-        }
+
         homeViewModel.isLoading.observe(this) {
             binding.progressBar.isVisible = it
         }
@@ -73,8 +55,6 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infla
             adapter.list = it
             adapter.notifyDataSetChanged()
             binding.floatingActionButton.visibility = View.VISIBLE
-            binding.floatingActionButton2.visibility = View.VISIBLE
-            binding.floatingActionButton3.visibility = View.VISIBLE
         }
     }
 
