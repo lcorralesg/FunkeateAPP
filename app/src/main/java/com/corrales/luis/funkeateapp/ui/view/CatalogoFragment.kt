@@ -26,7 +26,6 @@ class CatalogoFragment : BaseFragment<FragmentCatalogoBinding>(FragmentCatalogoB
         binding.rvProducts.adapter = productAdapter
         binding.rvCategories.adapter = categoryAdapter
 
-
         catalogoViewModel.productList.observe(this) {
             listProducts.clear()
             listProducts.addAll(it)
@@ -36,12 +35,17 @@ class CatalogoFragment : BaseFragment<FragmentCatalogoBinding>(FragmentCatalogoB
         catalogoViewModel.catalogList.observe(this) {
             listCategories.clear()
             listCategories.addAll(it)
+            categoryAdapter.setShowAllButton(true) // Habilita el botón "Mostrar todos"
             categoryAdapter.notifyDataSetChanged()
         }
     }
 
     override fun onCategoryClicked(category: CategoryResponse) {
         catalogoViewModel.getProductsByCategoryName(category.nombre)
+    }
+
+    override fun onShowAllClicked() {
+        catalogoViewModel.getAllProducts(requireContext())
     }
 
     override fun onProductClicked(product: ProductResponse) {
