@@ -27,7 +27,7 @@ class ProductDialog(context: Context, private val product: ProductResponse) : Di
         binding.tvProductName.text = "${product.nombre}"
         binding.tvProductDescription.text = "Descripción: ${product.descripcion}"
         binding.tvDetails.text = if (product.detalles.isNullOrEmpty()) "Detalles: No hay detalles" else "Detalles: ${product.detalles}"
-        binding.tvPrice.text = "Precio: ${product.precio}€"
+        binding.tvPrice.text = "Precio: S/. ${product.precio}"
         binding.tvEstado.text = if (product.estado) "Estado: Disponible" else "Estado: No disponible"
         binding.tvCajaPersonalizada.text = if (product.caja_personalizada) "Caja personalizada: Sí" else "Caja personalizada: No"
         binding.tvTamanoCaja.text = "Tamaño de caja: ${product.tamanoCaja}"

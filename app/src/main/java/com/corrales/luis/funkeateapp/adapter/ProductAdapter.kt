@@ -31,7 +31,7 @@ class ProductAdapter(
         fun bind(product: ProductResponse) {
             with(binding) {
                 tvName.text = product.nombre
-                tvPrice.text = "$${product.precio}"
+                tvPrice.text = "S/.${product.precio}"
                 tvCategory.text = product.categoria.nombre
                 Glide
                     .with(itemView)

@@ -42,7 +42,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="5dp"
                         android:textColor="@color/mine_shaft"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
                         tools:text="Funko 1" />
                     <TextView
@@ -63,7 +63,7 @@
         app:shapeAppearanceOverlay="@style/circleImageView"
         android:padding="3dp"
         app:strokeWidth="3dp"
-        app:strokeColor="@android:color/darker_gray"
+        app:strokeColor="@color/purple_200"
         android:background="@color/cardview_light_background"
         android:layout_marginEnd="13dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
