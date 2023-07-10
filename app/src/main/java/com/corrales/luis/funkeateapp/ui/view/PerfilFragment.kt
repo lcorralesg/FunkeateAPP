@@ -85,6 +85,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                         binding.userEmail.text = ""
                         binding.userName.text = ""
                         binding.userId.text = ""
+                        binding.emailVerified.text = ""
                         Glide
                             .with(requireContext())
                             .load(R.drawable.funkeate_logo)
@@ -97,6 +98,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                         binding.userId.visibility = View.GONE
                         binding.userEmail.visibility = View.GONE
                         binding.userName.visibility = View.GONE
+                        binding.emailVerified.visibility = View.GONE
                         binding.textView4.visibility = View.VISIBLE
 
                     }
@@ -113,6 +115,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                 override fun onSuccess(result: UserProfile) {
                     binding.userEmail.text = "Email: ${result.email}"
                     binding.userName.text = "Nombre: ${result.nickname}"
+                    binding.emailVerified.text = if (result.isEmailVerified == true) "Email verificado = Si" else "Email verificado = No"
                     val id = result.getId()?.split("|")
                     binding.userId.text = "ID: ${id?.get(1)}"
                     Glide
@@ -127,6 +130,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                     binding.userId.visibility = View.VISIBLE
                     binding.userName.visibility = View.VISIBLE
                     binding.userEmail.visibility = View.VISIBLE
+                    binding.emailVerified.visibility = View.VISIBLE
                     binding.textView4.visibility = View.GONE
                 }
             })

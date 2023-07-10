@@ -24,8 +24,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a Funkeate, inicia sesión o registrate para comenzar a comprar o crear tus propios productos"
-        android:textSize="20dp"
+        android:text="Inicie sesión para ver su perfil"
+        android:textSize="24sp"
         android:textAlignment="center"
         android:padding="16dp"
         android:layout_marginTop="16dp"
@@ -80,6 +80,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userName"
+            android:textStyle="bold"
+            android:textColor="@color/mine_shaft" />
+
+        <TextView
+            android:id="@+id/emailVerified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Email verificado"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userEmail"
             android:textStyle="bold"
             android:textColor="@color/mine_shaft" />
 
