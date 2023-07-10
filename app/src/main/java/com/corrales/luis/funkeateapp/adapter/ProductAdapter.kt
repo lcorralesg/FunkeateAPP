@@ -22,7 +22,6 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.bind(item)
-
     }
 
     override fun getItemCount(): Int = list.size

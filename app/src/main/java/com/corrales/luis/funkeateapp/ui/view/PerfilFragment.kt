@@ -13,6 +13,8 @@ import com.auth0.android.result.Credentials
 import com.auth0.android.result.UserProfile
 import com.bumptech.glide.Glide
 import com.corrales.luis.funkeateapp.R
+import com.corrales.luis.funkeateapp.adapter.CarritoAdapter
+import com.corrales.luis.funkeateapp.data.model.CarritoData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,10 +22,11 @@ import kotlinx.coroutines.withContext
 import com.corrales.luis.funkeateapp.databinding.FragmentPerfilBinding
 import com.corrales.luis.funkeateapp.ui.viewmodel.PerfilViewModel
 
-class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding::inflate) {
+class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding::inflate){
     private lateinit var account: Auth0
+    private var listCarrito = mutableListOf<CarritoData>()
     private val perfilViewModel: PerfilViewModel by viewModels()
-
+    private val carritoAdapter by lazy { CarritoAdapter(listCarrito) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +84,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                     CoroutineScope(Dispatchers.Main).launch {
                         binding.userEmail.text = ""
                         binding.userName.text = ""
+                        binding.userId.text = ""
                         Glide
                             .with(requireContext())
                             .load(R.drawable.funkeate_logo)
@@ -90,6 +94,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                         binding.logoutButton.visibility = View.GONE
 
                         // Cambiar el estado de visibilidad de los datos del usuario
+                        binding.userId.visibility = View.GONE
                         binding.userEmail.visibility = View.GONE
                         binding.userName.visibility = View.GONE
                         binding.textView4.visibility = View.VISIBLE
@@ -107,9 +112,9 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                 }
                 override fun onSuccess(result: UserProfile) {
                     binding.userEmail.text = "Email: ${result.email}"
-                    // Necesito el id, pero la funcion devuelve auth0|id, asi que lo separo
+                    binding.userName.text = "Nombre: ${result.nickname}"
                     val id = result.getId()?.split("|")
-                    binding.userName.text = "ID: ${id?.get(1)}"
+                    binding.userId.text = "ID: ${id?.get(1)}"
                     Glide
                         .with(requireContext())
                         .load(result.pictureURL)
@@ -119,6 +124,7 @@ class PerfilFragment : BaseFragment<FragmentPerfilBinding>(FragmentPerfilBinding
                     binding.loginButton.visibility = View.GONE
                     binding.logoutButton.visibility = View.VISIBLE
                     // Cambiar el estado de visibilidad de los datos del usuario
+                    binding.userId.visibility = View.VISIBLE
                     binding.userName.visibility = View.VISIBLE
                     binding.userEmail.visibility = View.VISIBLE
                     binding.textView4.visibility = View.GONE

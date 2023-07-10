@@ -24,37 +24,38 @@
             android:layout_marginStart="15dp"
             android:orientation="horizontal"
             android:gravity="bottom">
+            <TextView
+                android:id="@+id/tvPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textColor="@color/green_house"
+                android:textStyle="bold"
+                tools:text="$15" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <TextView
-                    android:id="@+id/tvPrice"
+                    android:id="@+id/tvNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:textColor="@color/green_house"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:textColor="@color/mine_shaft"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:text="$15" />
-                <LinearLayout
+                    tools:text="Funko 1" />
+                <TextView
+                    android:id="@+id/tvCantidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:textColor="@color/mine_shaft"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        tools:text="Funko 1" />
-                    <TextView
-                        android:id="@+id/tvCategory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/teal_200"
-                        android:layout_marginStart="10dp"
-                        android:textSize="11sp"
-                        tools:text="categoria" />
-                </LinearLayout>
+                    android:textColor="@color/teal_200"
+                    android:layout_marginStart="10dp"
+                    android:textSize="11sp"
+                    tools:text="cantidad" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <com.google.android.material.imageview.ShapeableImageView
